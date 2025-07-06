@@ -78,6 +78,10 @@
 
         .question-card {
             margin-bottom: 30px;
+            flex-grow: 1; /* 남은 공간을 차지하도록 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 질문 카드의 내용 중앙 정렬 */
         }
 
         .question-card h2 {
@@ -106,21 +110,21 @@
         .options {
             display: flex;
             flex-direction: column;
-            gap: 18px; /* 간격 늘림 */
-            margin-bottom: 40px; /* 간격 늘림 */
+            gap: 12px; /* 간격 줄임 */
+            margin-bottom: 20px; /* 간격 줄임 */
         }
 
         .option {
             display: flex;
             align-items: center; /* 세로 중앙 정렬 */
-            padding: 22px; /* 패딩 늘림 */
+            padding: 16px 22px; /* 패딩 약간 줄임 */
             border: 2px solid var(--border-light);
             border-radius: 15px; /* 더 둥글게 */
             background: white;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: left;
-            min-height: 70px; /* 최소 높이 증가 */
+            min-height: 60px; /* 최소 높이 약간 줄임 */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
         }
 
@@ -140,18 +144,19 @@
 
         .option .score {
             font-weight: 700; /* 더 굵게 */
-            font-size: 1.3rem; /* 크기 키움 */
-            margin-right: 20px; /* 간격 늘림 */
-            min-width: 50px; /* 최소 너비 증가 */
+            font-size: 1.2rem; /* 크기 약간 줄임 */
+            margin-right: 15px; /* 간격 약간 줄임 */
+            min-width: 45px; /* 최소 너비 약간 줄임 */
             display: flex; /* 스코어 텍스트 자체도 flex로 만들어 세부 정렬 가능하게 */
             align-items: center; /* 세로 중앙 정렬 */
             justify-content: center; /* 가로 중앙 정렬 (필요시) */
+            flex-shrink: 0; /* 내용이 길어져도 줄어들지 않도록 */
         }
 
         .option .description {
             flex: 1;
-            font-size: 1.1rem; /* 크기 약간 키움 */
-            line-height: 1.5;
+            font-size: 1rem; /* 크기 약간 줄임 */
+            line-height: 1.4;
             display: flex; /* 텍스트가 위로 붙지 않도록 flex 컨테이너에서 세로 중앙 정렬을 보장 */
             align-items: center;
         }
@@ -160,11 +165,11 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            margin-top: 30px; /* 간격 늘림 */
+            margin-top: 20px; /* 간격 줄임 */
         }
 
         .nav-btn {
-            padding: 15px 35px; /* 패딩 늘림 */
+            padding: 15px 35px; /* 패딩 유지 */
             border: none;
             border-radius: 12px; /* 더 둥글게 */
             font-size: 1.1rem; /* 크기 약간 키움 */
@@ -214,6 +219,10 @@
             margin-bottom: 30px;
             text-align: center;
             box-shadow: var(--shadow-medium);
+            flex-grow: 1; /* 남은 공간을 차지하도록 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .result-card h2 {
@@ -256,6 +265,10 @@
             margin: 30px 0;
             text-align: left;
             box-shadow: var(--shadow-light);
+            flex-grow: 1; /* 남은 공간을 차지하도록 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .detailed-analysis h3 {
@@ -275,27 +288,30 @@
         }
 
         .score-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            /* 기존 flex-direction: column; 대신 Grid 사용 */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2열로 분할 */
+            gap: 15px; /* 항목 간 간격 */
             margin-bottom: 30px;
         }
 
         .score-item {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 18px; /* 패딩 늘림 */
+            flex-direction: column; /* 항목 내부는 세로 정렬 유지 */
+            align-items: flex-start; /* 항목 내용 왼쪽 정렬 */
+            gap: 8px; /* 항목 내부 요소 간 간격 줄임 */
+            padding: 15px; /* 패딩 약간 줄임 */
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 그림자 */
         }
 
         .category-name {
-            min-width: 90px; /* 너비 약간 늘림 */
+            width: 100%; /* 항목 이름은 전체 너비 차지 */
             font-weight: 600;
             color: var(--text-dark);
             text-align: left; /* 왼쪽 정렬 */
+            margin-bottom: 5px; /* 바와 이름 간격 */
         }
 
         .score-bar {
@@ -304,6 +320,7 @@
             background: var(--border-light);
             border-radius: 8px;
             overflow: hidden;
+            width: 100%; /* 바도 전체 너비 차지 */
         }
 
         .score-fill {
@@ -314,10 +331,11 @@
         }
 
         .score-value {
-            min-width: 50px; /* 너비 약간 늘림 */
+            width: 100%; /* 점수 값도 전체 너비 차지 */
             font-weight: 600;
             color: var(--text-dark);
             text-align: right; /* 오른쪽 정렬 */
+            margin-top: 5px; /* 바와 점수 간격 */
         }
 
         .strengths-weaknesses {
@@ -431,25 +449,25 @@
             font-size: 3rem; /* 더 크게 */
             font-weight: 800; /* 더 굵게 */
             color: var(--primary-color-start); /* 메인 색상 사용 */
-            margin-bottom: 25px;
+            margin-bottom: 20px; /* 간격 줄임 */
             line-height: 1.2;
             letter-spacing: -0.04em;
             text-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
         }
 
         .welcome-subtitle {
-            font-size: 1.5rem; /* 더 크게 */
+            font-size: 1.3rem; /* 약간 줄임 */
             color: var(--text-medium);
-            margin-bottom: 35px;
+            margin-bottom: 25px; /* 간격 줄임 */
             line-height: 1.6;
             font-weight: 400;
         }
 
         .welcome-description {
-            font-size: 1.15rem; /* 약간 키움 */
+            font-size: 1rem; /* 약간 줄임 */
             color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 50px; /* 간격 늘림 */
+            line-height: 1.7;
+            margin-bottom: 35px; /* 간격 줄임 */
             text-align: center; /* 가운데 정렬 */
             max-width: 500px; /* 너비 제한 */
         }
@@ -458,26 +476,26 @@
             background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 20px 60px; /* 패딩 더 늘림 */
-            border-radius: 20px; /* 더 둥글게 */
-            font-size: 1.4rem; /* 더 크게 */
+            padding: 18px 50px; /* 패딩 줄임 */
+            border-radius: 18px; /* 약간 줄임 */
+            font-size: 1.3rem; /* 약간 줄임 */
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(106, 17, 203, 0.4); /* 그림자 강화 */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            letter-spacing: 0.05em; /* 자간 약간 추가 */
+            letter-spacing: 0.03em; /* 자간 약간 줄임 */
         }
 
         .start-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 45px rgba(106, 17, 203, 0.5);
         }
 
         /* Coupang Ad Style */
         .coupang-ad-container {
             margin-top: 30px; /* 광고 상단 여백 */
-            margin-bottom: 30px; /* 광고 하단 여백 */
+            margin-bottom: 10px; /* 광고 하단 여백 줄임 */
             text-align: center;
             width: 100%; /* 너비 100%로 설정 */
         }
@@ -488,6 +506,14 @@
             overflow: hidden; /* iframe 내부 내용이 넘치지 않도록 */
         }
 
+        /* Coupang Disclosure Style */
+        .coupang-disclosure {
+            font-size: 0.8rem; /* 작은 글씨 */
+            color: var(--text-light); /* 연한 색상 */
+            margin-top: 15px; /* 광고 하단에 여백 */
+            text-align: center;
+            line-height: 1.4;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -517,22 +543,22 @@
             }
             
             .options {
-                gap: 12px;
-                margin-bottom: 25px;
+                gap: 8px; /* 모바일에서 간격 더 줄임 */
+                margin-bottom: 20px;
             }
             
             .option {
-                padding: 18px;
-                min-height: 60px;
+                padding: 14px 18px; /* 모바일에서 패딩 더 줄임 */
+                min-height: 55px; /* 모바일에서 최소 높이 줄임 */
             }
             
             .option .score {
-                font-size: 1.1rem;
-                min-width: 45px;
+                font-size: 1rem;
+                min-width: 40px; /* 모바일에서 최소 너비 줄임 */
             }
             
             .option .description {
-                font-size: 0.95rem;
+                font-size: 0.9rem; /* 모바일에서 폰트 크기 줄임 */
             }
             
             .nav-btn {
@@ -574,27 +600,38 @@
                 margin-bottom: 15px;
             }
             
+            /* 모바일에서 score-grid는 다시 1열로 */
+            .score-grid {
+                grid-template-columns: 1fr; /* 1열로 변경 */
+                gap: 10px; /* 간격 약간 줄임 */
+            }
+            
+            /* 모바일에서 score-item 내부 정렬 다시 설정 */
             .score-item {
-                flex-direction: column;
-                align-items: flex-start; /* 모바일에서 좌측 정렬 */
-                gap: 8px;
-                padding: 15px;
+                flex-direction: row; /* 항목 내부 요소는 다시 가로로 */
+                align-items: center; /* 세로 중앙 정렬 */
+                justify-content: space-between; /* 양 끝 정렬 */
+                gap: 10px; /* 요소 간 간격 */
+                padding: 12px; /* 패딩 줄임 */
             }
             
             .category-name {
-                min-width: auto;
+                width: auto; /* 너비 자동 */
                 text-align: left;
-                width: 100%;
+                margin-bottom: 0; /* 간격 제거 */
+                flex-shrink: 0; /* 줄어들지 않도록 */
             }
             
             .score-bar {
-                width: 100%;
+                flex-grow: 1; /* 바가 남은 공간을 채우도록 */
+                width: auto; /* 너비 자동 */
             }
             
             .score-value {
-                min-width: auto;
+                width: auto; /* 너비 자동 */
                 text-align: right;
-                width: 100%;
+                margin-top: 0; /* 간격 제거 */
+                flex-shrink: 0; /* 줄어들지 않도록 */
             }
 
             .strengths-weaknesses {
@@ -623,25 +660,17 @@
 
             /* Welcome Screen Responsive */
             .welcome-title {
-                font-size: 2.3rem;
-                margin-bottom: 20px;
+                font-size: 2.1rem; /* 모바일에서 약간 더 줄임 */
+                margin-bottom: 15px;
             }
             
             .welcome-subtitle {
-                font-size: 1.2rem;
-                margin-bottom: 25px;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
             }
             
-            .welcome-description {
-                font-size: 1rem;
-                margin-bottom: 35px;
-            }
-            
-            .start-btn {
-                padding: 16px 45px;
-                font-size: 1.2rem;
-            }
-        }
+    // 중간에 껴있는 부분 삭제되었음
+
     </style>
 </head>
 <body>
@@ -660,22 +689,22 @@
                 "question": "포핸드를 원하는 곳으로 보낼 수 있나요?",
                 "description": "포핸드의 방향 제어와 깊이 조절 능력을 평가합니다.",
                 "levels": {
-                    1: "공 때리기도 급급해요! 라켓에 맞으면 다행이죠. 😅",
-                    2: "간단한 방향(대충 저~쪽)은 어쩌다 가능해요. 가끔 예상치 못한 곳으로... 😮‍💨",
-                    3: "중간 속도로 오는 공은 원하는 곳으로 보낼 수 있어요! 나름 컨트롤 가능! 😉",
-                    4: "깊이와 방향을 자유자재로 조절해요! 상대 코트 구석구석을 노리죠. ✨",
-                    5: "어떤 상황에서도 정확한 포핸드로 게임을 지배합니다! 포핸드는 역시 필승! 💪"
+                    1: "공 때리기도 급급! 라켓에 맞으면 다행이죠. 😅",
+                    2: "간단한 방향(대충 저~쪽)은 어쩌다 가능해요. 가끔 예상치 못한 곳으로! 😮‍💨",
+                    3: "중간 속도 공은 원하는 곳으로 척척! 나름 컨트롤 가능! 😉",
+                    4: "깊이와 방향을 자유자재로 조절! 상대 코트 구석구석을 노려요. ✨",
+                    5: "어떤 상황에서도 정확한 포핸드로 게임 지배! 역시 필승! 💪"
                 }
             },
             "backhand": {
                 "question": "백핸드를 원하는 곳으로 보낼 수 있나요?",
                 "description": "백핸드의 일관성과 방향 제어 능력을 평가합니다.",
                 "levels": {
-                    1: "백핸드만 오면 몸부터 돌려 포핸드로 냅다 쳐요. 백핸드는 나의 숙제... 😭",
-                    2: "백핸드를 치긴 하는데 네트를 넘기지 못하거나 엉뚱한 방향으로 가요. 삐끗삐끗! 🫠",
-                    3: "중간 속도 공은 백핸드로도 꽤 안정적으로 넘겨요. 이제 좀 폼이 나는 듯? 😊",
-                    4: "백핸드로도 방향과 깊이를 자유롭게 조절해요! 상대방이 백핸드 약점인 줄 알았대요. 😎",
-                    5: "포핸드만큼 강력하고 정확한 백핸드로 상대방을 압도합니다! 백핸드마스터! 🚀"
+                    1: "백핸드만 오면 몸부터 돌려 포핸드로 냅다 쳐요. 나의 숙제! 😭",
+                    2: "백핸드를 치긴 하는데 네트행이거나 엉뚱한 방향으로 가요. 삐끗삐끗! 🫠",
+                    3: "중간 속도 공은 백핸드로도 꽤 안정적! 이제 좀 폼이 나는 듯? 😊",
+                    4: "백핸드로도 방향/깊이 자유자재! 상대방이 약점인 줄 알았대요. 😎",
+                    5: "포핸드만큼 강력하고 정확한 백핸드로 상대를 압도! 백핸드마스터! 🚀"
                 }
             },
             "serve": {
@@ -684,28 +713,28 @@
                 "levels": {
                     1: "일단 서브 넣기만 해도 감지덕지! 더블 폴트는 기본이죠. 😥",
                     2: "세컨드 서브는 어떻게든 코트 안에 넣어요. 첫 서브는 모험! 🤞",
-                    3: "첫 서브도 가끔 번개처럼 꽂히고, 세컨드 서브도 안정적이에요! ⚡",
-                    4: "강력한 파워와 날카로운 정확성으로 상대방을 혼란에 빠뜨려요! 서브 에이스 제조기! 💥",
-                    5: "어떤 압박감 속에서도 에이스를 꽂아 넣는 믿음직한 서브! 서브는 곧 득점! 💯"
+                    3: "첫 서브도 가끔 번개처럼 꽂히고, 세컨드 서브도 안정적! ⚡",
+                    4: "강력한 파워와 날카로운 정확성! 서브 에이스 제조기! 💥",
+                    5: "압박감 속에서도 에이스 꽂는 믿음직한 서브! 서브는 곧 득점! 💯"
                 }
             },
             "volley": {
                 "question": "발리와 네트 플레이를 할 수 있나요?",
                 "description": "네트에서의 편안함과 발리 득점 능력을 평가합니다.",
                 "levels": {
-                    1: "네트 근처 가는 건 좀... 불편하고 공이 무서워요. 😭",
-                    2: "간단하게 네트 앞에서 공을 받아 넘기는 정도는 해요. 툭! 😅",
+                    1: "네트 근처 가는 건 좀... 공이 무서워요. 😭",
+                    2: "간단하게 네트 앞에서 공 받아 넘기는 정도는 해요. 툭! 😅",
                     3: "포핸드 발리는 꽤 자신 있어요! 백핸드는 아직 연습 중... 🤔",
                     4: "발리로 포인트를 직접 따낼 수 있어요! 네트는 나의 구역! 🏰",
-                    5: "네트 앞에서 상대방을 압박하고 발리로 게임을 끝냅니다! 발리의 마법사! ✨"
+                    5: "네트 앞에서 상대를 압박하고 발리로 게임을 끝냅니다! 발리의 마법사! ✨"
                 }
             },
             "footwork": {
                 "question": "풋워크와 코트 커버리지는 어느 정도인가요?",
                 "description": "코트 이동과 포지셔닝 능력을 평가합니다.",
                 "levels": {
-                    1: "공이 오면 그냥 멍하니 서 있어요. 공 따라가는 것도 버거워요. 🫠",
-                    2: "기본적인 좌우 이동은 하지만, 빠르지 않아요. 영차영차! 🚶",
+                    1: "공이 오면 멍... 공 따라가는 것도 버거워요. 🫠",
+                    2: "기본적인 좌우 이동은 하지만, 빠르진 않아요. 영차영차! 🚶",
                     3: "코트 넓이를 어느 정도 커버해요. 이제 좀 테니스 선수 같아요! 🏃",
                     4: "날렵한 풋워크로 코트 구석구석을 누벼요! 휙휙! 💨",
                     5: "프로 선수처럼 코트 전체를 지배하는 풋워크와 포지셔닝! 코트의 지배자! 👑"
@@ -715,11 +744,11 @@
                 "question": "게임 전략을 세우고 실행할 수 있나요?",
                 "description": "상대방 분석과 전략적 사고 능력을 평가합니다.",
                 "levels": {
-                    1: "그냥 공만 치면 되는 거 아닌가요? 전략은 먹는 건가요? 🤷",
+                    1: "그냥 공만 치면 되는 거 아닌가요? 전략은 뭔가요? 🤷",
                     2: "상대방 약점을 대충 노려볼까...? 정도는 생각해요. 🧐",
-                    3: "상대방의 약점을 파악하고 거기에 맞춰 공격을 시도해요! 제법 전략적! 🎯",
-                    4: "게임을 예측하고, 상황에 따라 전략을 유연하게 바꿔요! 이기는 게임은 전략 싸움! 🧠",
-                    5: "어떤 상대방도 완벽하게 분석하고 맞춤 전략으로 승리를 쟁취합니다! 테니스 브레인! 💡"
+                    3: "상대 약점 파악하고 거기에 맞춰 공격 시도! 제법 전략적! 🎯",
+                    4: "게임을 예측하고 상황에 따라 전략을 유연하게 바꿔요! 이기는 게임은 전략 싸움! 🧠",
+                    5: "어떤 상대방도 완벽 분석, 맞춤 전략으로 승리 쟁취! 테니스 브레인! 💡"
                 }
             },
             "consistency": {
@@ -728,9 +757,9 @@
                 "levels": {
                     1: "3번 이상 랠리 이어가면 기적! 내 공은 어디로... 😵‍💫",
                     2: "느린 페이스에서 짧은 랠리",
-                    3: "중간 속도에서 일관성 있게",
-                    4: "빠른 페이스에서도 안정적",
-                    5: "어떤 상황에서도 흔들리지 않음"
+                    3: "중간 속도 랠리는 꽤 안정적! 이제 좀 랠리 맛이 나네요! 👍",
+                    4: "빠른 페이스에서도 안정적! 좀처럼 실수하지 않죠. 🛡️",
+                    5: "어떤 상황에서도 흔들림 없는 완벽한 일관성! 벽치기 장인! 🧱"
                 }
             },
             "mental": {
@@ -740,8 +769,8 @@
                     1: "실수 한 번 하면 라켓 던지고 싶어져요. 바로 멘탈 붕괴! 🤯",
                     2: "간단한 게임은 괜찮은데, 지고 있으면 표정 관리가 안 돼요. 😠",
                     3: "어느 정도 압박감에 대처 가능! 그래도 속은 부글부글... 😤",
-                    4: "중요한 순간에도 침착하고 냉정함을 유지해요! 강철 멘탈! 💎",
-                    5: "어떤 상황에서도 흔들리지 않는 완벽한 멘탈로 상대를 압도합니다! 멘탈 갑! 👑"
+                    4: "중요한 순간에도 침착하고 냉정함 유지! 강철 멘탈! 💎",
+                    5: "어떤 상황에서도 흔들리지 않는 완벽 멘탈로 상대를 압도! 멘탈 갑! 👑"
                 }
             }
         };
@@ -785,17 +814,17 @@
         function renderWelcome(app) {
             app.innerHTML = `
                 <div class="welcome-screen">
-                    <h1 class="welcome-title">🚀 테니스 실력, 어디까지 왔니?</h1>
-                    <p class="welcome-subtitle">NTRP 테스트로 당신의 레벨을 명확하게 파악해보세요! 👋</p>
+                    <h1 class="welcome-title">🎾 당신의 테니스 레벨은?</h1>
+                    <p class="welcome-subtitle">간단한 테스트로 지금 바로 확인하세요! 🚀</p>
                     <div class="welcome-description">
-                        <p>안녕하세요, 테니스 열정 가득한 플레이어님! 🤩</p>
-                        <p>혹시 내 테니스 실력이 어느 정도인지 궁금하셨나요? 🤔 이 테스트는 당신의 테니스 실력을 객관적으로 가늠해볼 수 있는 아주 특별한 기회입니다! 복잡한 설명 없이, 몇 가지 질문에 답하는 것만으로 당신의 현재 NTRP 레벨을 파악하고, 앞으로 어떤 부분을 연습하면 좋을지 맞춤형 가이드를 받아볼 수 있어요. 💡</p>
-                        <p>포핸드, 백핸드, 서브부터 발리, 풋워크, 전략, 일관성, 그리고 멘탈까지! 당신의 강점과 개선점을 발견하고 한 단계 더 성장하는 계기를 만들어보세요. 테니스 여정의 다음 단계를 위한 첫걸음, 지금 시작해봐요! 💪</p>
+                        <p>내 테니스 실력이 궁금하신가요? 이 테스트는 당신의 NTRP 레벨을 쉽고 재미있게 진단해 드립니다.</p>
+                        <p>몇 가지 질문에 답하고, 포핸드부터 멘탈까지 당신의 강점과 개선점을 한눈에 확인해보세요! ✨</p>
                     </div>
                     <button class="start-btn" onclick="startTest()">테스트 시작하기</button>
                     <div class="coupang-ad-container">
                         <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" Browsetopics></iframe>
                     </div>
+                    <p class="coupang-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
                 </div>
             `;
         }
@@ -910,6 +939,7 @@
                 <div class="coupang-ad-container">
                     <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" Browsetopics></iframe>
                 </div>
+                <p class="coupang-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
             `;
         }
 
