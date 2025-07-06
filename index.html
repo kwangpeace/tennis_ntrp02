@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎾 테니스 NTRP 레벨 테스트</title>
-    <meta name="description" content="나만의 테니스 NTRP 레벨을 쉽고 재미있게 진단하고, 포핸드, 백핸드, 멘탈까지 상세한 강점과 개선점, 맞춤형 훈련 제안을 받아보세요!">
-    <meta name="google-site-verification" content="YQVEVhrzYQX3OKNKF9aYig_tQrJL8Y5Q9f0_A3l_Dkw" />
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -500,10 +498,25 @@
         }
         .coupang-ad-container iframe {
             max-width: 100%;
-            height: 44px;
+            height: 44px; /* Default height for search bar */
             border-radius: 8px;
             overflow: hidden;
         }
+        /* Style for banner ad iframe */
+        .coupang-banner-ad-container {
+            margin-top: 20px; /* Spacing from previous content */
+            margin-bottom: 10px; /* Spacing to next content */
+            text-align: center;
+            width: 100%;
+        }
+        .coupang-banner-ad-container iframe {
+            max-width: 100%; /* Ensure responsiveness */
+            height: 140px; /* Fixed height for banner */
+            border-radius: 8px;
+            overflow: hidden;
+            border: none; /* Remove default iframe border */
+        }
+
 
         /* Coupang Disclosure Style */
         .coupang-disclosure {
@@ -698,7 +711,7 @@
                 "description": "포핸드의 방향 제어와 깊이 조절 능력을 평가합니다.",
                 "levels": {
                     1: "공 때리기도 급급! 라켓에 맞으면 다행이죠. 😅",
-                    2: "간단한 방향(대충 저~쪽)은 어쩌다 가능해요. 가끔 예상치 못한 곳으로! �", 
+                    2: "간단한 방향(대충 저~쪽)은 어쩌다 가능해요. 가끔 예상치 못한 곳으로! 😓", 
                     3: "중간 속도 공은 원하는 곳으로 척척! 나름 컨트롤 가능! 😉",
                     4: "깊이와 방향을 자유자재로 조절! 상대 코트 구석구석을 노려요. 🌟", 
                     5: "어떤 상황에서도 정확한 포핸드로 게임 지배! 역시 필승! 💪"
@@ -730,7 +743,7 @@
                 "question": "발리와 네트 플레이를 할 수 있나요?",
                 "description": "네트에서의 편안함과 발리 득점 능력을 평가합니다.",
                 "levels": {
-                    1: "네트 근처 가는 건 좀... 공이 무서워요. 😭",
+                    1: "네트 근처 가는 건 좀... 공이 무서워요. �",
                     2: "간단하게 네트 앞에서 공 받아 넘기는 정도는 해요. 툭! 😅",
                     3: "포핸드 발리는 꽤 자신 있어요! 백핸드는 아직 연습 중... 🤔",
                     4: "발리로 포인트를 직접 따낼 수 있어요! 네트는 나의 구역! 🏰",
@@ -831,9 +844,13 @@
                         포핸드부터 멘탈까지 당신의 강점과 개선점을 한눈에 확인해보세요! <span class="emoji">💫</span></p>
                     </div>
                     <button class="start-btn" onclick="startTest()">테스트 시작하기</button>
-                    <!-- Coupang Partners Ad -->
+                    <!-- Coupang Partners Search Bar Ad -->
                     <div class="coupang-ad-container">
                         <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics></iframe>
+                    </div>
+                    <!-- Coupang Partners Banner Ad -->
+                    <div class="coupang-banner-ad-container">
+                        <iframe src="https://ads-partners.coupang.com/widgets.html?id=885878&template=carousel&trackingCode=AF6812978&subId=&width=680&height=140&tsource=" width="100%" height="140" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics></iframe>
                     </div>
                     <!-- Coupang Partners Disclosure -->
                     <p class="coupang-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
@@ -948,9 +965,13 @@
                 </div>
                 
                 <button class="restart-btn" onclick="restartTest()">다시 테스트하기</button>
-                <!-- Coupang Partners Ad -->
+                <!-- Coupang Partners Search Bar Ad -->
                 <div class="coupang-ad-container">
                     <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics></iframe>
+                </div>
+                <!-- Coupang Partners Banner Ad -->
+                <div class="coupang-banner-ad-container">
+                    <iframe src="https://ads-partners.coupang.com/widgets.html?id=885878&template=carousel&trackingCode=AF6812978&subId=&width=680&height=140&tsource=" width="100%" height="140" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics></iframe>
                 </div>
                 <!-- Coupang Partners Disclosure -->
                 <p class="coupang-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
@@ -1103,3 +1124,4 @@
     </script>
 </body>
 </html>
+�
