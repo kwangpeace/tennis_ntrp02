@@ -112,7 +112,7 @@
 
         .option {
             display: flex;
-            align-items: center;
+            align-items: center; /* 세로 중앙 정렬 */
             padding: 22px; /* 패딩 늘림 */
             border: 2px solid var(--border-light);
             border-radius: 15px; /* 더 둥글게 */
@@ -143,12 +143,17 @@
             font-size: 1.3rem; /* 크기 키움 */
             margin-right: 20px; /* 간격 늘림 */
             min-width: 50px; /* 최소 너비 증가 */
+            display: flex; /* 스코어 텍스트 자체도 flex로 만들어 세부 정렬 가능하게 */
+            align-items: center; /* 세로 중앙 정렬 */
+            justify-content: center; /* 가로 중앙 정렬 (필요시) */
         }
 
         .option .description {
             flex: 1;
             font-size: 1.1rem; /* 크기 약간 키움 */
             line-height: 1.5;
+            display: flex; /* 텍스트가 위로 붙지 않도록 flex 컨테이너에서 세로 중앙 정렬을 보장 */
+            align-items: center;
         }
 
         .navigation {
@@ -396,7 +401,7 @@
             border: none;
             padding: 18px 50px; /* 패딩 늘림 */
             border-radius: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -406,8 +411,8 @@
         }
 
         .restart-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(106, 17, 203, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.3);
         }
 
         /* Welcome Screen Styles */
@@ -469,6 +474,21 @@
             box-shadow: 0 15px 45px rgba(106, 17, 203, 0.5);
         }
 
+        /* Coupang Ad Style */
+        .coupang-ad-container {
+            margin-top: 30px; /* 광고 상단 여백 */
+            margin-bottom: 30px; /* 광고 하단 여백 */
+            text-align: center;
+            width: 100%; /* 너비 100%로 설정 */
+        }
+        .coupang-ad-container iframe {
+            max-width: 100%; /* 너무 커지지 않도록 최대 너비 설정 */
+            height: 44px; /* 주어진 iframe 높이 */
+            border-radius: 8px; /* 모서리 둥글게 */
+            overflow: hidden; /* iframe 내부 내용이 넘치지 않도록 */
+        }
+
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -529,7 +549,7 @@
             }
             
             .ntrp-level {
-                font-size: 4rem;
+                font-size: 3.5rem; /* 모바일에서 약간 줄임 */
             }
             
             .description {
@@ -590,7 +610,7 @@
                 font-size: 1.1rem;
             }
             
-            .strengths li, .weaknesses li, .improvement-suggestions li {
+            .strengths ul, .weaknesses ul, .improvement-suggestions ul {
                 font-size: 0.95rem;
                 line-height: 1.5;
             }
@@ -640,73 +660,73 @@
                 "question": "포핸드를 원하는 곳으로 보낼 수 있나요?",
                 "description": "포핸드의 방향 제어와 깊이 조절 능력을 평가합니다.",
                 "levels": {
-                    1: "공을 때리긴 하는데 어디로 갈지 모름",
-                    2: "간단한 방향은 어느 정도 가능",
-                    3: "중간 속도에서는 방향 제어 가능",
-                    4: "깊이와 방향을 잘 조절함",
-                    5: "어떤 상황에서도 정확한 포핸드"
+                    1: "공 때리기도 급급해요! 라켓에 맞으면 다행이죠. 😅",
+                    2: "간단한 방향(대충 저~쪽)은 어쩌다 가능해요. 가끔 예상치 못한 곳으로... 😮‍💨",
+                    3: "중간 속도로 오는 공은 원하는 곳으로 보낼 수 있어요! 나름 컨트롤 가능! 😉",
+                    4: "깊이와 방향을 자유자재로 조절해요! 상대 코트 구석구석을 노리죠. ✨",
+                    5: "어떤 상황에서도 정확한 포핸드로 게임을 지배합니다! 포핸드는 역시 필승! 💪"
                 }
             },
             "backhand": {
                 "question": "백핸드를 원하는 곳으로 보낼 수 있나요?",
                 "description": "백핸드의 일관성과 방향 제어 능력을 평가합니다.",
                 "levels": {
-                    1: "백핸드 피하고 돌아서 포핸드로 치려 함",
-                    2: "백핸드 치긴 하는데 불안정함",
-                    3: "중간 속도에서는 일관성 있게 침",
-                    4: "방향과 깊이를 잘 조절함",
-                    5: "포핸드만큼 강력한 백핸드"
+                    1: "백핸드만 오면 몸부터 돌려 포핸드로 냅다 쳐요. 백핸드는 나의 숙제... 😭",
+                    2: "백핸드를 치긴 하는데 네트를 넘기지 못하거나 엉뚱한 방향으로 가요. 삐끗삐끗! 🫠",
+                    3: "중간 속도 공은 백핸드로도 꽤 안정적으로 넘겨요. 이제 좀 폼이 나는 듯? 😊",
+                    4: "백핸드로도 방향과 깊이를 자유롭게 조절해요! 상대방이 백핸드 약점인 줄 알았대요. 😎",
+                    5: "포핸드만큼 강력하고 정확한 백핸드로 상대방을 압도합니다! 백핸드마스터! 🚀"
                 }
             },
             "serve": {
                 "question": "서브의 정확성과 파워는 어느 정도인가요?",
                 "description": "첫 서브와 세컨드 서브의 성공률과 효과를 평가합니다.",
                 "levels": {
-                    1: "서브 넣기만 해도 다행",
-                    2: "세컨드 서브는 어느 정도 넣음",
-                    3: "첫 서브도 가끔 에이스",
-                    4: "파워와 정확성 모두 좋음",
-                    5: "압박감 속에서도 신뢰할 수 있는 서브"
+                    1: "일단 서브 넣기만 해도 감지덕지! 더블 폴트는 기본이죠. 😥",
+                    2: "세컨드 서브는 어떻게든 코트 안에 넣어요. 첫 서브는 모험! 🤞",
+                    3: "첫 서브도 가끔 번개처럼 꽂히고, 세컨드 서브도 안정적이에요! ⚡",
+                    4: "강력한 파워와 날카로운 정확성으로 상대방을 혼란에 빠뜨려요! 서브 에이스 제조기! 💥",
+                    5: "어떤 압박감 속에서도 에이스를 꽂아 넣는 믿음직한 서브! 서브는 곧 득점! 💯"
                 }
             },
             "volley": {
                 "question": "발리와 네트 플레이를 할 수 있나요?",
                 "description": "네트에서의 편안함과 발리 득점 능력을 평가합니다.",
                 "levels": {
-                    1: "네트 근처 가는 것도 싫어함",
-                    2: "간단한 발리는 어느 정도",
-                    3: "포핸드 발리는 괜찮음",
-                    4: "발리를 득점으로 연결 가능",
-                    5: "네트에서 상대방을 압박하는 발리"
+                    1: "네트 근처 가는 건 좀... 불편하고 공이 무서워요. 😭",
+                    2: "간단하게 네트 앞에서 공을 받아 넘기는 정도는 해요. 툭! 😅",
+                    3: "포핸드 발리는 꽤 자신 있어요! 백핸드는 아직 연습 중... 🤔",
+                    4: "발리로 포인트를 직접 따낼 수 있어요! 네트는 나의 구역! 🏰",
+                    5: "네트 앞에서 상대방을 압박하고 발리로 게임을 끝냅니다! 발리의 마법사! ✨"
                 }
             },
             "footwork": {
                 "question": "풋워크와 코트 커버리지는 어느 정도인가요?",
                 "description": "코트 이동과 포지셔닝 능력을 평가합니다.",
                 "levels": {
-                    1: "공 따라가는 것도 힘듦",
-                    2: "기본적인 이동은 가능",
-                    3: "코트 커버리지가 어느 정도 됨",
-                    4: "뛰어난 풋워크로 모든 공 커버",
-                    5: "프로급 풋워크와 포지셔닝"
+                    1: "공이 오면 그냥 멍하니 서 있어요. 공 따라가는 것도 버거워요. 🫠",
+                    2: "기본적인 좌우 이동은 하지만, 빠르지 않아요. 영차영차! 🚶",
+                    3: "코트 넓이를 어느 정도 커버해요. 이제 좀 테니스 선수 같아요! 🏃",
+                    4: "날렵한 풋워크로 코트 구석구석을 누벼요! 휙휙! 💨",
+                    5: "프로 선수처럼 코트 전체를 지배하는 풋워크와 포지셔닝! 코트의 지배자! 👑"
                 }
             },
             "strategy": {
                 "question": "게임 전략을 세우고 실행할 수 있나요?",
                 "description": "상대방 분석과 전략적 사고 능력을 평가합니다.",
                 "levels": {
-                    1: "그냥 공만 치면 됨",
-                    2: "간단한 전략은 생각함",
-                    3: "상대방 약점을 노림",
-                    4: "게임을 이끌어가는 전략가",
-                    5: "어떤 상대방도 분석하고 대응"
+                    1: "그냥 공만 치면 되는 거 아닌가요? 전략은 먹는 건가요? 🤷",
+                    2: "상대방 약점을 대충 노려볼까...? 정도는 생각해요. 🧐",
+                    3: "상대방의 약점을 파악하고 거기에 맞춰 공격을 시도해요! 제법 전략적! 🎯",
+                    4: "게임을 예측하고, 상황에 따라 전략을 유연하게 바꿔요! 이기는 게임은 전략 싸움! 🧠",
+                    5: "어떤 상대방도 완벽하게 분석하고 맞춤 전략으로 승리를 쟁취합니다! 테니스 브레인! 💡"
                 }
             },
             "consistency": {
                 "question": "일관성 있게 랠리를 이어갈 수 있나요?",
                 "description": "안정적인 샷과 에러 관리 능력을 평가합니다.",
                 "levels": {
-                    1: "3번 이상 랠리 이어가기 힘듦",
+                    1: "3번 이상 랠리 이어가면 기적! 내 공은 어디로... 😵‍💫",
                     2: "느린 페이스에서 짧은 랠리",
                     3: "중간 속도에서 일관성 있게",
                     4: "빠른 페이스에서도 안정적",
@@ -717,11 +737,11 @@
                 "question": "게임 중 멘탈 관리가 잘 되나요?",
                 "description": "압박감과 스트레스 상황에서의 대처 능력을 평가합니다.",
                 "levels": {
-                    1: "실수하면 바로 포기",
-                    2: "간단한 게임에서는 괜찮음",
-                    3: "어느 정도 압박감에 대처 가능",
-                    4: "중요한 순간에도 침착함",
-                    5: "어떤 상황에서도 흔들리지 않는 멘탈"
+                    1: "실수 한 번 하면 라켓 던지고 싶어져요. 바로 멘탈 붕괴! 🤯",
+                    2: "간단한 게임은 괜찮은데, 지고 있으면 표정 관리가 안 돼요. 😠",
+                    3: "어느 정도 압박감에 대처 가능! 그래도 속은 부글부글... 😤",
+                    4: "중요한 순간에도 침착하고 냉정함을 유지해요! 강철 멘탈! 💎",
+                    5: "어떤 상황에서도 흔들리지 않는 완벽한 멘탈로 상대를 압도합니다! 멘탈 갑! 👑"
                 }
             }
         };
@@ -773,6 +793,9 @@
                         <p>포핸드, 백핸드, 서브부터 발리, 풋워크, 전략, 일관성, 그리고 멘탈까지! 당신의 강점과 개선점을 발견하고 한 단계 더 성장하는 계기를 만들어보세요. 테니스 여정의 다음 단계를 위한 첫걸음, 지금 시작해봐요! 💪</p>
                     </div>
                     <button class="start-btn" onclick="startTest()">테스트 시작하기</button>
+                    <div class="coupang-ad-container">
+                        <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" Browsetopics></iframe>
+                    </div>
                 </div>
             `;
         }
@@ -884,6 +907,9 @@
                 </div>
                 
                 <button class="restart-btn" onclick="restartTest()">다시 테스트하기</button>
+                <div class="coupang-ad-container">
+                    <iframe src="https://coupa.ng/ciT9UH" width="100%" height="44" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" Browsetopics></iframe>
+                </div>
             `;
         }
 
@@ -915,6 +941,19 @@
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
                 renderApp();
+                // 이전 버튼 클릭 시 선택된 답변이 활성화되도록 renderApp() 후에 선택 상태 복원
+                const currentQuestionKey = questionKeys[currentQuestionIndex];
+                const selectedScore = answers[currentQuestionKey];
+                if (selectedScore) {
+                    const options = document.querySelectorAll('.option');
+                    options.forEach(option => {
+                        if (parseInt(option.querySelector('.score').innerText) === selectedScore) {
+                            option.classList.add('selected');
+                        } else {
+                            option.classList.remove('selected');
+                        }
+                    });
+                }
             }
         }
 
